@@ -58,19 +58,41 @@
     </div>
   </div>  <script>
     const domandeRomantiche = [
+      ...Array.from({length: 50}, (_, i) => `Preferiresti una coccola #${i+1} o un bacio speciale #${i+1}?`),
       "Preferiresti guardare le stelle insieme o guardare un film romantico sul divano?",
       "Preferiresti ricevere una lettera d'amore o una sorpresa inaspettata?",
       "Preferiresti fare l'amore lentamente tutta la notte o coccolarti fino ad addormentarti?",
       "Preferiresti ballare lentamente al chiaro di luna o tenerti la mano sotto le coperte?",
-      "Preferiresti una notte in un hotel di lusso o una tenda sotto le stelle con me?"
+      "Preferiresti una notte in un hotel di lusso o una tenda sotto le stelle con me?",
+      "Preferiresti che ti leggessi una poesia o sussurrassi pensieri dolci all'orecchio?",
+      "Preferiresti risvegliarti con un bacio sul collo o addormentarti con le mie braccia addosso?",
+      "Preferiresti fare colazione nudi o addormentarci abbracciati dopo aver fatto l'amore?",
+      "Preferiresti un lento massaggio alla schiena o un bacio dolce sulla fronte?",
+      "Preferiresti ricevere un messaggio romantico ogni giorno o una lettera intensa ogni settimana?",
+      "Preferiresti passeggiare sulla spiaggia al tramonto o sorseggiare vino in terrazza sotto le stelle?",
+      "Preferiresti addormentarti al suono della mia voce o svegliarti con le mie coccole?",
+      "Preferiresti passare un weekend senza cellulare ma con me o un viaggio da solo ai tropici?",
+      "Preferiresti prepararmi una cena a lume di candela o riceverne una da me?",
+      "Preferiresti guardarmi negli occhi mentre mi racconti un sogno o mentre ti sfioro il viso?"
     ];
 
     const domandeHardcore = [
+      ...Array.from({length: 50}, (_, i) => `Preferiresti un gioco proibito #${i+1} o una fantasia segreta #${i+1}?`),
       "Preferiresti essere bendato o bendarmi?",
       "Preferiresti farlo in un luogo pubblico o in un posto segreto e proibito?",
       "Preferiresti usare il ghiaccio o la cera calda sul corpo?",
       "Preferiresti essere il dominatore o il sottomesso?",
-      "Preferiresti legarmi al letto o essere legato da me?"
+      "Preferiresti legarmi al letto o essere legato da me?",
+      "Preferiresti guardarmi mentre mi spoglio lentamente o farmi spogliare te?",
+      "Preferiresti sentire solo la mia voce o il mio tocco senza vedere nulla?",
+      "Preferiresti una notte intensa con giochi di ruolo o una maratona di piacere senza limiti?",
+      "Preferiresti provare un nuovo giocattolo erotico o inventare una nuova posizione?",
+      "Preferiresti farlo sul tavolo della cucina o contro il muro della doccia?",
+      "Preferiresti sussurrarmi le tue fantasie o ascoltare le mie senza sapere quando succederanno?",
+      "Preferiresti una doccia bollente insieme o un bagno lento e sensuale a lume di candela?",
+      "Preferiresti ricevere un messaggio hot a sorpresa o una telefonata in cui ti descrivo cosa ti farò?",
+      "Preferiresti lasciarti guidare completamente o prendermi totalmente il controllo?",
+      "Preferiresti un massaggio con olio profumato o uno spogliarello privato improvvisato?"
     ];
 
     let currentQuestions = [];
