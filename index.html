@@ -1,75 +1,97 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html><html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preferiresti Hot</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      color: white;
+      color: #fff;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      margin: 0;
-      padding: 20px;
       text-align: center;
     }
-
     .container {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.3);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      max-width: 90%;
     }
-
+    h1 {
+      margin-bottom: 1rem;
+    }
     .question {
-      font-size: 1.8em;
-      margin-bottom: 20px;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
     }
-
-    .button {
-      background-color: white;
-      color: #ff416c;
-      padding: 10px 25px;
+    .btn, .mode-btn {
+      background: white;
+      color: #ff4b2b;
       border: none;
-      border-radius: 25px;
-      font-size: 1em;
-      margin: 10px;
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
+      margin: 0.5rem;
     }
-
-    .button:hover {
-      background-color: #ffe0ec;
+    .btn:hover, .mode-btn:hover {
+      background: #ffe6e1;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="question" id="question">Preferiresti…</div>
-    <button class="button" onclick="nextQuestion()">Prossima domanda</button>
-  </div>
-
-  <script>
-    const questions = [
-      "Preferiresti baciare qualcuno davanti a tutti o in segreto?",
-      "Preferiresti fare una vacanza romantica o una avventura folle?",
-      "Preferiresti inviare un messaggio hot per sbaglio o riceverlo?",
-      "Preferiresti essere bendato o bendare?",
-      "Preferiresti provare qualcosa di nuovo o restare sul sicuro?"
+    <h1>Scegli la modalità 🔥</h1>
+    <button class="mode-btn" onclick="setMode('romantica')">❤️ Romantica</button>
+    <button class="mode-btn" onclick="setMode('hardcore')">🔥 Hard-core</button>
+    <div id="game" style="display:none;">
+      <div class="question" id="question">Caricamento...</div>
+      <button class="btn" onclick="nextQuestion()">Prossima domanda</button>
+    </div>
+  </div>  <script>
+    const domandeRomantiche = [
+      "Preferiresti guardare le stelle insieme o guardare un film romantico sul divano?",
+      "Preferiresti ricevere una lettera d'amore o una sorpresa inaspettata?",
+      "Preferiresti fare l'amore lentamente tutta la notte o coccolarti fino ad addormentarti?",
+      "Preferiresti ballare lentamente al chiaro di luna o tenerti la mano sotto le coperte?",
+      "Preferiresti una notte in un hotel di lusso o una tenda sotto le stelle con me?"
     ];
 
-    function nextQuestion() {
-      const random = Math.floor(Math.random() * questions.length);
-      document.getElementById('question').textContent = questions[random];
+    const domandeHardcore = [
+      "Preferiresti essere bendato o bendarmi?",
+      "Preferiresti farlo in un luogo pubblico o in un posto segreto e proibito?",
+      "Preferiresti usare il ghiaccio o la cera calda sul corpo?",
+      "Preferiresti essere il dominatore o il sottomesso?",
+      "Preferiresti legarmi al letto o essere legato da me?"
+    ];
+
+    let currentQuestions = [];
+
+    function setMode(mode) {
+      if (mode === 'romantica') {
+        currentQuestions = domandeRomantiche;
+        document.body.style.background = 'linear-gradient(135deg, #ff9a9e, #fad0c4)';
+      } else {
+        currentQuestions = domandeHardcore;
+        document.body.style.background = 'linear-gradient(135deg, #ff416c, #ff4b2b)';
+      }
+      document.querySelector('h1').style.display = 'none';
+      document.querySelectorAll('.mode-btn').forEach(btn => btn.style.display = 'none');
+      document.getElementById('game').style.display = 'block';
+      nextQuestion();
     }
 
-    // Mostra la prima domanda all’avvio
-    nextQuestion();
-  </script>
-</body>
+    function nextQuestion() {
+      const i = Math.floor(Math.random() * currentQuestions.length);
+      document.getElementById('question').textContent = currentQuestions[i];
+    }
+  </script></body>
 </html>
