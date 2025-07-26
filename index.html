@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preferiresti Hot</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f8f9fa;
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Preferiresti...</h1>
+  <div class="question" id="question">Caricamento...</div>
+  <div>
+    <button onclick="nextQuestion()">Prossima domanda</button>
+  </div>
+
+  <script>
+    const questions = [
+      "Mangiare solo pizza per un anno oppure non mangiare mai più pizza?",
+      "Avere la possibilità di volare oppure essere invisibile?",
+      "Vivere senza internet oppure vivere senza aria condizionata o riscaldamento?",
+      "Essere sempre in anticipo di 10 minuti oppure sempre in ritardo di 20 minuti?",
+      "Parlare tutte le lingue del mondo oppure suonare tutti gli strumenti musicali?"
+    ];
+
+    function nextQuestion() {
+      const randomIndex = Math.floor(Math.random() * questions.length);
+      document.getElementById("question").textContent = questions[randomIndex];
+    }
+
+    // Mostra una domanda all'avvio
+    nextQuestion();
+  </script>
+</body>
+</html>
