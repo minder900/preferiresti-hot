@@ -6,52 +6,69 @@
   <title>Preferiresti Hot</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 40px;
-      background: #f8f9fa;
-    }
-    .question {
-      font-size: 1.5em;
-      margin-bottom: 30px;
-    }
-    button {
-      font-size: 1em;
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      background-color: #007bff;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
       color: white;
-      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
     }
-    button:hover {
-      background-color: #0056b3;
+
+    .container {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .question {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: white;
+      color: #ff416c;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ffe0ec;
     }
   </style>
 </head>
 <body>
-  <h1>Preferiresti...</h1>
-  <div class="question" id="question">Caricamento...</div>
-  <div>
-    <button onclick="nextQuestion()">Prossima domanda</button>
+  <div class="container">
+    <div class="question" id="question">Preferiresti…</div>
+    <button class="button" onclick="nextQuestion()">Prossima domanda</button>
   </div>
 
   <script>
     const questions = [
-      "Mangiare solo pizza per un anno oppure non mangiare mai più pizza?",
-      "Avere la possibilità di volare oppure essere invisibile?",
-      "Vivere senza internet oppure vivere senza aria condizionata o riscaldamento?",
-      "Essere sempre in anticipo di 10 minuti oppure sempre in ritardo di 20 minuti?",
-      "Parlare tutte le lingue del mondo oppure suonare tutti gli strumenti musicali?"
+      "Preferiresti baciare qualcuno davanti a tutti o in segreto?",
+      "Preferiresti fare una vacanza romantica o una avventura folle?",
+      "Preferiresti inviare un messaggio hot per sbaglio o riceverlo?",
+      "Preferiresti essere bendato o bendare?",
+      "Preferiresti provare qualcosa di nuovo o restare sul sicuro?"
     ];
 
     function nextQuestion() {
-      const randomIndex = Math.floor(Math.random() * questions.length);
-      document.getElementById("question").textContent = questions[randomIndex];
+      const random = Math.floor(Math.random() * questions.length);
+      document.getElementById('question').textContent = questions[random];
     }
 
-    // Mostra una domanda all'avvio
+    // Mostra la prima domanda all’avvio
     nextQuestion();
   </script>
 </body>
